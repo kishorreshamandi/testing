@@ -31,6 +31,18 @@ public class Restaurants {
   private String name;
 
   @Column(columnDefinition = "text")
-  private String pricture;
+  private String documentUrl;
+
+  @Column
+  private String address;
+
+  @Column
+  private String phoneNumber;
+
+  @Column
+  private String gstNumber;
+
+  @Column
+  private String licienceNumber;
 
 }
