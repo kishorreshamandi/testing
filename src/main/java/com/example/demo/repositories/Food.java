@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin("*")
-@RepositoryRestResource(collectionResourceRel = "restaurants", path = "restaurants")
+@RepositoryRestResource(collectionResourceRel = "food", path = "food")
 @Repository
-public interface Restaurants extends JpaRepository<com.example.demo.model.Restaurants, Long> {
+public interface Food extends JpaRepository<com.example.demo.model.Food, Long> {
 
 }

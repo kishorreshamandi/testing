@@ -2,9 +2,12 @@ package com.example.demo.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -22,31 +25,32 @@ import lombok.ToString;
 @Setter
 @Entity
 @ToString(onlyExplicitlyIncluded = true)
-public class Restaurants {
+public class Food {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column
   private Long id;
 
+  @NotNull
+  @NotEmpty
+  @ManyToOne(fetch = FetchType.EAGER, optional = false)
+  @JoinColumn(name = "restaurant_id", nullable = false)
+  private Restaurants restaurantsID;
+
   @Column
   private String name;
 
-  @Column(columnDefinition = "text")
-  private String documentUrl;
+  @Column
+  private String category;
 
   @Column
-  private String address;
-
-  @Column(unique = true)
-  @NotNull(message = "Phone number is required")
-  @NotEmpty(message = "email must not be empty")
-  private String phoneNumber;
+  private String description;
 
   @Column
-  private String gstNumber;
+  private long price;
 
   @Column
-  private String licienceNumber;
+  private long rating;
 
 }
